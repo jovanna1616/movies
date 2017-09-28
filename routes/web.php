@@ -1,5 +1,5 @@
 <?php
-
+use App\Movie;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/movies', 
+   [
+   		'as' => 'all-movies',
+   		'uses' => 'MoviesController@index'
+   ]
+);
+Route::get('/movies/create',
+    [
+        'as' => 'add-movie',
+        'uses' => 'PostsController@create'
+    ]
+);
+
+// Route::post('/movies')
+
+Route::get('/movies/{id}', 
+   [
+   		'as' => 'single-movie',
+   		'uses' => 'MoviesController@show'
+   ]
+);
