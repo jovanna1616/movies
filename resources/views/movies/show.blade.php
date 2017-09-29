@@ -30,4 +30,29 @@
 	            @endforeach
 	        </ul>
 		@endif
+
+		<h4>Post a comment:</h4>
+        <form method="POST" action="{{ route('comments-movie', ['movie_id' => $movie->id]) }}">
+
+	        {{ csrf_field() }}
+
+	        
+
+	        <input type="hidden" name="movie_id" value="{{ $movie->id }}">
+
+	        <div class="form-group">
+	            <label for="text">Comment:</label>
+	            <textarea class="form-control" id="content" name="content"></textarea>
+
+	            @include(
+		            'partials.error-messages', 
+		            ['fieldTitle' => 'content']
+	            )
+	        </div>
+
+	        <div class="form-group">
+	            <button type="submit" class="btn btn-primary">Publish</button>
+	        </div>
+
+		</form>
 	@endsection
