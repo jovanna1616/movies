@@ -1,5 +1,6 @@
 <?php
 use App\Movie;
+use App\Http\Controllers\MoviesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +24,17 @@ Route::get('/movies',
 );
 Route::get('/movies/create',
     [
-        'as' => 'add-movie',
-        'uses' => 'PostsController@create'
+        'as' => 'movies-create',
+        'uses' => 'MoviesController@create'
     ]
 );
 
-// Route::post('/movies')
+Route::post('/movies', 
+  [
+    'as' => 'movies-store',
+    'uses' => 'MoviesController@store'
+  ]
+);
 
 Route::get('/movies/{id}', 
    [
