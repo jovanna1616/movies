@@ -13,4 +13,21 @@
 			<hr>
 			<p><strong>About film: </strong>{{ $movie->storyline }}</p>
         </div>
+
+        @if(count($movie->comments))
+	        <hr/>
+	        <h4>Comments:</h4>
+	        <ul class="list-unstyled">
+	            @foreach($movie->comments as $comment)
+	                <li>
+	                    <p>
+	                        <strong>Comment:</strong> {{ $comment->content }}
+	                    </p>
+	                    <p>
+	                        created at: {{ $comment->created_at->diffForHumans() }}
+	                    </p>
+	                </li>
+	            @endforeach
+	        </ul>
+		@endif
 	@endsection

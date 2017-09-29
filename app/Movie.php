@@ -15,7 +15,6 @@ class Movie extends Model {
     const STORE_RULES = [
         'title' => 'required | max: 25',
         'genre' => 'required | max: 20',
-        // 'year' => 'required | min: 1900 | max: {year}',
         'year' => 'required | integer | between:1900, {year}',
         'storyline' => 'required | max: 1000'
     ];
@@ -24,5 +23,11 @@ class Movie extends Model {
 
     static function getMovies() {
     	return self::all();
+    }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
