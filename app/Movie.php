@@ -22,7 +22,12 @@ class Movie extends Model {
 
 
     static function getMovies() {
-    	return self::all();
+    	return self::latest()->get();
+    }
+
+    static function getLatestFiveMoviesForSidebar() {
+        $movies = Movie::latest()->limit(5)->get();
+        return $movies;
     }
 
 

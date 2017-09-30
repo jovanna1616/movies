@@ -7,7 +7,7 @@
 	@section('content')
 		<div class="blog-post">
 			<h4>Movie Title: {{ $movie->title }}</h4>
-			<a href="{{ route('movies-genre', ['genre' => $movie->genre]) }}">Genre: {{ $movie->genre }}</a>
+			<h5>Genre: <a href="{{ route('movies-genre', ['genre' => $movie->genre]) }}">{{ $movie->genre }}</a></h5>
 			<h5>Director: {{ $movie->director }}</h5>
 			<h5>Year of publishing: {{ $movie->year }}</h5>
 			<hr>
@@ -41,7 +41,6 @@
 	        <input type="hidden" name="movie_id" value="{{ $movie->id }}">
 
 	        <div class="form-group">
-	            <label for="text">Comment:</label>
 	            <textarea class="form-control" id="content" name="content"></textarea>
 
 	            @include(

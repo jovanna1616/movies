@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 	@section('title')
-		<h1>ALL MOVIES</h1>
+		All {{ basename($_SERVER['PATH_INFO']) }} movies:
 	@endsection
 
 	@section('content')
@@ -10,7 +10,7 @@
 				@foreach($movies as $movie)
 				<li class="list-unstyled">
 					<h1 class="blog-post-title">{{ $movie->title }}</h1>
-					<p>{{ substr($movie->storyline, 0, 100) }}...</p>
+					<p>{{ $movie->storyline }}</p>
 				</li>
 				@endforeach
 			</ul>
